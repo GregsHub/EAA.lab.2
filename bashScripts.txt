@@ -1,0 +1,119 @@
+Open a terminal and run:
+
+export GIT_SSL_NO_VERIFY=1
+export http_proxy=http://localhost:3128
+
+sudo -E apt-get install git
+
+git config --global user.email "<your email>"
+git config --global user.name "<your username>"
+
+#steps for repo already created on github.com
+git clone https://github.com/jzburns/EAA.lab.1.git
+cd EAA.lab.1/
+mkdir week2
+cd week2
+touch script.sh
+cd ..
+git add -A
+git commit -a
+git push origin master
+
+#steps for repo Not already created on github.com
+mkdir EAA.lab.2
+cd EAA.lab.2
+mkdir week2
+cd week2
+touch script.sh
+cd ..
+touch README.md
+git init
+git add -A
+git commit -a
+git remote add origin https://github.com/jzburns/EAA.lab.2.git
+git push -u origin master
+
+#!/bin/bash
+#: Title : diary.sh
+#: Date : 02-Oct-2014
+#: Author : Greg
+#: Version : 0.1
+#: Description : This is a script that reads and appends data to a diary
+#: Options : 
+
+
+echo "Tell me what you did today, followed by [ENTER]:"
+
+read entry 
+
+#timestamp() {
+ # date +%T
+#}
+
+
+
+echo $entry $(date) >> $HOME/EAA.lab.2/diary.txt
+
+
+#!/bin/bash
+#: Title : data.sh
+#: Date : 02-Oct-2014
+#: Author : Greg
+#: Version : 0.1
+#: Description : This is a hellow world script using positional parameters
+#: Options : 
+
+
+printf "Hello %s $1 nice to meet you \n I see you favourite colour is %s $3 \n and you were born in %s $2 \n" 
+
+#!/bin/bash
+#: Title : hw.sh
+#: Date : 02-Oct-2014
+#: Author : Greg
+#: Version : 0.1
+#: Description : This is a hellow world script using positional parameters
+#: Options : 
+
+
+printf "%s\n" "Hello, World!" 
+printf "Hello %s $1 nice to meet you \n" 
+
+
+#!/bin/bash
+#: Title : cpuCounter.sh
+#: Date : 05-Oct-2014
+#: Author : Greg
+#: Version : 0.1
+#: Description : This is a cpu count script
+#: Options : No other options
+
+
+echo "This is a script to count processors"
+echo "The number of cpu's is"
+grep processor /proc/cpuinfo | wc -l
+
+
+#!/bin/bash
+#: Title : EAA lab2 Q1 - setup.sh
+#: Date : 5 October 2014
+#: Author : Greg Williams
+#: Version : 1.0
+#: Description : scirpt to create 2 sub directories
+#: Options : 
+
+mkdir bin scripts
+
+
+
+This was my first day
+This is my Second day
+This is my Third day %T
+This is my Fourth day
+This is my Sixth day 11:38:51
+This is my Seventh day
+This is my Eight day 11:45:34
+This is my Ninth day Sun Oct 5 11:46:07 PDT 2014
+This is my Tenth day 11:47:18
+This is my Eleventh day date
+This is my Twelfth day 11:52:55
+This is my Thirtenth day Sun Oct 5 11:54:05 PDT 2014
